@@ -5,4 +5,4 @@ opencv_contrib_python==4.5.3.56
 Pillow==9.2.0
 scikit_learn==1.0.2
 tensorflow==2.5.0
-typeguard = 2.13.3
+typeguard==2.13.3
