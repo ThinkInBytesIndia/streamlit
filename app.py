@@ -16,8 +16,6 @@ import matplotlib.pyplot as plt
 from keras.preprocessing import image
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import plot_confusion_matrix
-import cv2
-import os
 fig = plt.figure()
 
 st.header("Emotion Recognition using deep learning")
