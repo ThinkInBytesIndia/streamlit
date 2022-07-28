@@ -54,8 +54,8 @@ def load_model():
     return model
 
 def main():
-    file_uploaded = st.file_uploader("Choose File", type=["png","jpg","jpeg"])
-   
+    #file_uploaded = st.file_uploader("Choose File", type=["png","jpg","jpeg"])
+    file_uploaded = st.camera_input("Take a picture")
     if file_uploaded is not None:    
         image = Image.open(file_uploaded)
         plt.imshow(image)
