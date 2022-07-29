@@ -60,7 +60,6 @@ def main():
     file_uploaded = st.camera_input("Take a picture")
     if file_uploaded is not None:    
         image = Image.open(file_uploaded)
-        print(type(image))
         image = np.array(image)
         face_detector = dlib.get_frontal_face_detector()
         detected_faces = face_detector(image, 1)
@@ -88,10 +87,10 @@ def main():
 
 def predict(image):
     #classifier_model = "https://tfhub.dev/agripredict/disease-classification/1"
-    IMAGE_SHAPE = (48, 48, 3)
+    IMAGE_SHAPE = (48, 48, 1)
     model = load_model()
     #model = tf.keras.Sequential([hub.KerasLayer(classifier_model,input_shape=IMAGE_SHAPE)])
-    
+    print(image.shape)
     test_image = image.resize((48,48))
     test_image = preprocessing.image.img_to_array(test_image)
     test_image = test_image / 255.0
