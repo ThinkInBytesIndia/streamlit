@@ -23,8 +23,7 @@ fig = plt.figure()
 st.header("Emotion Recognition using deep learning")
 
 def load_model():
-    def model_architecture():
-    
+
     model = Sequential()
     model.add(Conv2D(32, (5,5), padding='same', activation='relu',input_shape=(48, 48, 3)))
     model.add(MaxPooling2D(pool_size=(2,2)))
