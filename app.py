@@ -60,8 +60,9 @@ def main():
     file_uploaded = st.camera_input("Take a picture")
     if file_uploaded is not None:    
         image = Image.open(file_uploaded)
+        print(type(image))
         face_detector = dlib.get_frontal_face_detector()
-        detected_faces = face_detector(image, 1)
+        detected_faces = face_detector(image)
         df = str(detected_faces)
         s1 = (df.replace('rectangles', ''))
         listelem = re.findall('\(.*?\)',s1)
