@@ -61,6 +61,7 @@ def main():
     if file_uploaded is not None:    
         image = Image.open(file_uploaded)
         print(type(image))
+        image = np.array(image)
         face_detector = dlib.get_frontal_face_detector()
         detected_faces = face_detector(image)
         df = str(detected_faces)
