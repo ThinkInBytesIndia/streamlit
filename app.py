@@ -79,7 +79,7 @@ def main():
 
 def predict(image):
     #classifier_model = "https://tfhub.dev/agripredict/disease-classification/1"
-    IMAGE_SHAPE = (48, 48, 1)
+    IMAGE_SHAPE = (48, 48, 3)
     model = load_model()
     #model = tf.keras.Sequential([hub.KerasLayer(classifier_model,input_shape=IMAGE_SHAPE)])
     print(image.shape)
