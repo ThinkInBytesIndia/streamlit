@@ -43,7 +43,7 @@ def load_model():
 
     model.compile(Adam(lr=0.0001), loss='categorical_crossentropy', metrics=['accuracy'])
     
-    model.load_weights('cp-050.pkl')
+    model.load_weights('cp-049.pkl')
     
     return model
 
