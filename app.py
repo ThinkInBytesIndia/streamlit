@@ -58,9 +58,27 @@ def main():
     file_uploaded = st.camera_input("Take a picture")
     if file_uploaded is not None:    
         image = Image.open(file_uploaded)
+        face_detector = dlib.get_frontal_face_detector()
+        detected_faces = face_detector(image, 1)
+        df = str(detected_faces)
+        s1 = (df.replace('rectangles', ''))
+        listelem = re.findall('\(.*?\)',s1)
+        
+        n1 = listelem[0].split(',')
+        n = [ int(n1[0].replace("(","")), int(n1[1].replace(")",""))]  
+
+        n2 = listelem[1].split(',')
+        n_1 = [ int(n2[0].replace("(","")), int(n2[1].replace(")",""))]  
+        
+        num1 = n[0]
+        num2 = n[1]
+        num3 = n_1[0]
+        num4 = n_1[1]
+
+        cropped= img[num2:num4,num1:num3]
         plt.imshow(image)
         plt.axis("off")
-        predictions = predict(image)
+        predictions = predict(cropped)
         st.write(predictions)
         st.pyplot(fig)
 
