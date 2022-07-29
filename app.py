@@ -91,6 +91,7 @@ def predict(image):
     model = load_model()
     #model = tf.keras.Sequential([hub.KerasLayer(classifier_model,input_shape=IMAGE_SHAPE)])
     print(image.shape)
+    image = Image.fromarray(image)
     test_image = image.resize((48,48))
     test_image = preprocessing.image.img_to_array(test_image)
     test_image = test_image / 255.0
@@ -112,13 +113,6 @@ def predict(image):
     result = f"{class_names[np.argmax(scores)]} with a { (100 * np.max(scores)).round(2) } percent confidence." 
     return result
 
-
-
-
-
-
-
-    
 
 if __name__ == "__main__":
     main()
