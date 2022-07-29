@@ -63,7 +63,7 @@ def main():
         print(type(image))
         image = np.array(image)
         face_detector = dlib.get_frontal_face_detector()
-        detected_faces = face_detector(image)
+        detected_faces = face_detector(image, 1)
         df = str(detected_faces)
         s1 = (df.replace('rectangles', ''))
         listelem = re.findall('\(.*?\)',s1)
@@ -79,7 +79,7 @@ def main():
         num3 = n_1[0]
         num4 = n_1[1]
 
-        cropped= img[num2:num4,num1:num3]
+        cropped= image[num2:num4,num1:num3]
         plt.imshow(image)
         plt.axis("off")
         predictions = predict(cropped)
