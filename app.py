@@ -23,32 +23,25 @@ fig = plt.figure()
 st.header("Emotion Recognition using deep learning")
 
 def load_model():
+    def model_architecture():
+    
     model = Sequential()
     model.add(Conv2D(32, (5,5), padding='same', activation='relu',input_shape=(48, 48, 3)))
     model.add(MaxPooling2D(pool_size=(2,2)))
-    model.add(Dropout(0.2))
-    model.add(Conv2D(32, (5,5), padding='same', activation='relu'))
-    model.add(Dropout(0.2))
-
     model.add(Conv2D(64, (5,5), padding='same', activation='relu'))
     model.add(MaxPooling2D(pool_size=(2,2)))
-    model.add(Dropout(0.2))
-    model.add(Conv2D(64, (5,5), padding='same', activation='relu'))
-    model.add(Dropout(0.2))
+    model.add(Dropout(0.2)) 
 
     model.add(Conv2D(128, (5,5), padding='same', activation='relu'))
     model.add(MaxPooling2D(pool_size=(2,2)))
-    model.add(Dropout(0.2))
-    model.add(Conv2D(128, (5,5), padding='same', activation='relu'))
-    model.add(Dropout(0.2))
-
+    model.add(Conv2D(256, (5,5), padding='same', activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2,2)))
+    model.add(Dropout(0.2)) 
     model.add(Flatten())
-    model.add(Dense(256, activation='relu'))
+    model.add(Dense(32, activation='relu'))
     model.add(Dropout(0.2))
-    model.add(Dense(64, activation='relu'))
-    model.add(Dropout(0.2))
-    model.add(Dense(7, activation='softmax'))
-    
+    model.add(Dense(4, activation='softmax'))
+
     model.compile(Adam(lr=0.0001), loss='categorical_crossentropy', metrics=['accuracy'])
     
     model.load_weights('cp-050.pkl')
@@ -98,12 +91,9 @@ def predict(image):
     test_image = np.expand_dims(test_image, axis=0)
     
     class_names = [
-          'angry',
-          'disgusted',
-          'fearful', 
+          'angry', 
           'happy', 
           'neutral',
-          'sad', 
           'surprised'
           ]
     predictions = model.predict(test_image)
