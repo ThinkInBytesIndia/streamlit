@@ -43,7 +43,7 @@ def load_model():
 
     model.compile(Adam(lr=0.0001), loss='categorical_crossentropy', metrics=['accuracy'])
     
-    model.load_weights('cp-049.pkl')
+    model.load_weights('cp-050.pkl')
     
     return model
 
@@ -79,7 +79,7 @@ def main():
 
 def predict(image):
     #classifier_model = "https://tfhub.dev/agripredict/disease-classification/1"
-    IMAGE_SHAPE = (48, 48, 3)
+    IMAGE_SHAPE = (48, 48, 1)
     model = load_model()
     #model = tf.keras.Sequential([hub.KerasLayer(classifier_model,input_shape=IMAGE_SHAPE)])
     print(image.shape)
