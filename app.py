@@ -76,7 +76,7 @@ def main():
         plt.imshow(image)
         plt.axis("off")
         predictions = predict(cropped)
-        st.write(predictions)
+        st.subheader(predictions)
         st.pyplot(fig)
 
 def predict(image):
@@ -110,4 +110,13 @@ if __name__ == "__main__":
     main()
     st.markdown("<h2 style='text-align: center; color: black;'>Image Classification - Applications</h2>", unsafe_allow_html=True)
     image = Image.open('screen1.png')
-    st.image(image)
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.write(' ')
+
+    with col2:
+        st.image(image)
+
+    with col3:
+        st.write(' ')
