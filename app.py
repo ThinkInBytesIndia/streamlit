@@ -60,7 +60,7 @@ def main():
     file_uploaded = st.camera_input("Take a picture")
     if file_uploaded is not None:    
         image = Image.open(file_uploaded)
-        image_copy = Image.open(file_uploaded)
+        image_copy = image.copy()
         image = np.array(image)
         face_detector = dlib.get_frontal_face_detector()
         detected_faces = face_detector(image, 1)
@@ -79,7 +79,7 @@ def main():
         num3 = n_1[0]
         num4 = n_1[1]
 
-        #cropped= image[num2:num4,num1:num3]
+        cropped= image[num2:num4,num1:num3]
         #show_face = Image.fromarray(cropped) 
         draw=D.Draw(image_copy)
         draw.rectangle([(num2,num4),(num1,num3)],outline="red")
