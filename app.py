@@ -102,6 +102,8 @@ def predict(image):
     result = f"You seem {class_names[np.argmax(scores)]} with a { (100 * np.max(scores)).round(2) + 30 } percent confidence." 
     return result
 
+image = Image.open('screen1.png')
+placeholder.image(image)
 
 if __name__ == "__main__":
     main()
