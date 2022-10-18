@@ -80,7 +80,7 @@ def main():
         cropped= image[num2:num4,num1:num3]
         #show_face = Image.fromarray(cropped) 
         draw=D.Draw(image_copy)
-        draw.rectangle([(num1,num3),(num2,num4)],outline="red")
+        draw.rectangle([(num1,num2),(num3,num4)],outline="red")
         plt.imshow(image_copy)
         plt.figure(figsize = (1,1.5))
         plt.axis("off")
