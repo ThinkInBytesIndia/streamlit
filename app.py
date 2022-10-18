@@ -103,7 +103,7 @@ def predict(image):
     return result
 
 image = Image.open('screen1.png')
-placeholder.image(image)
+st.image(image)
 
 if __name__ == "__main__":
     main()
