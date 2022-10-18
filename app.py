@@ -19,6 +19,8 @@ from sklearn.metrics import plot_confusion_matrix
 import dlib
 import re
 fig = plt.figure()
+fig.set_figwidth(5)
+fig.set_figheight(10)
 #st.set_page_config(layout="wide")
 
 
