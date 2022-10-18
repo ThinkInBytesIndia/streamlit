@@ -24,7 +24,7 @@ fig = plt.figure()
 
 st.header("Emotion Recognition using deep learning")
 
-st.sidebear.subheader("How this works ?")
+st.sidebar.subheader("How this works ?")
 
 def load_model():
 
