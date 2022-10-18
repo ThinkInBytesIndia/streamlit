@@ -78,7 +78,7 @@ def main():
 
         cropped= image[num2:num4,num1:num3]
         show_face = Image.fromarray(cropped)
-        show_face = cropped.resize((100,150))
+        show_face = cropped.resize((20,30))
         plt.imshow(show_face)
         plt.axis("off")
         predictions = predict(cropped)
