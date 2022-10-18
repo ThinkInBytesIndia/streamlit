@@ -79,8 +79,7 @@ def main():
         num4 = n_1[1]
 
         cropped= image[num2:num4,num1:num3]
-        show_face = Image.fromarray(cropped)
-        show_face = show_face.resize((20,30)) 
+        show_face = Image.fromarray(cropped) 
         plt.imshow(show_face)
         plt.figure(figsize = (5,10))
         plt.axis("off")
