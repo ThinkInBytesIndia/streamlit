@@ -109,7 +109,7 @@ def predict(image):
     scores = tf.nn.softmax(predictions[0])
     scores = scores.numpy()
 
-    result = f"You seem {class_names[np.argmax(scores)]} with a { int(100 * np.max(scores))+30 } percent confidence." 
+    result = f"AI thinks you are {class_names[np.argmax(scores)]} with { int(100 * np.max(scores))+30 } % confidence." 
     return result
 
 
