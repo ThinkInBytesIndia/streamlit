@@ -22,7 +22,8 @@ fig = plt.figure()
 #st.set_page_config(layout="wide")
 
 
-st.title("Emotion Recognition using deep learning")
+st.title("Emotion Recognition using AI")
+st.caption("Powered by Think In Bytes")
 
 st.sidebar.header("Behind the scenes !")
 #st.markdown('<div style="text-align: justify;">Hello World!</div>', unsafe_allow_html=True)
