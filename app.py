@@ -24,7 +24,9 @@ fig = plt.figure()
 
 st.header("Emotion Recognition using deep learning")
 
-st.sidebar.subheader("How this works ?")
+st.sidebar.subheader("Behind the scenes !")
+
+st.sidebar.text("This emotion recongition module is a demonstration of our light-weight AI enabled Computer Vision Engine that identifies image pixels and classifies them into defined classes. The pre-trained pipeline leverages the advantage of minimal training, easy deployment and accurate results !")
 
 def load_model():
 
@@ -75,6 +77,7 @@ def main():
         num4 = n_1[1]
 
         cropped= image[num2:num4,num1:num3]
+        image.resize((100,150))
         plt.imshow(cropped)
         plt.axis("off")
         predictions = predict(cropped)
@@ -82,7 +85,6 @@ def main():
         st.pyplot(fig)
 
 def predict(image):
-    #classifier_model = "https://tfhub.dev/agripredict/disease-classification/1"
     IMAGE_SHAPE = (48, 48, 1)
     model = load_model()
     #model = tf.keras.Sequential([hub.KerasLayer(classifier_model,input_shape=IMAGE_SHAPE)])
@@ -113,3 +115,4 @@ if __name__ == "__main__":
     st.markdown("<h2 style='text-align: center; color: black;'>Image Classification - Applications</h2>", unsafe_allow_html=True)
     image = Image.open('screen1.png')
     st.image(image)
+    st.markdown("Powered by [Think In Bytes](https://www.thinkinbytes.in)")
