@@ -19,8 +19,6 @@ from sklearn.metrics import plot_confusion_matrix
 import dlib
 import re
 fig = plt.figure()
-fig.set_figwidth(5)
-fig.set_figheight(10)
 #st.set_page_config(layout="wide")
 
 
@@ -82,7 +80,7 @@ def main():
         cropped= image[num2:num4,num1:num3]
         #show_face = Image.fromarray(cropped) 
         draw=D.Draw(image_copy)
-        draw.rectangle([(num2,num4),(num1,num3)],outline="red")
+        draw.rectangle([(num1,num3),(num2,num4)],outline="red")
         plt.imshow(image_copy)
         plt.figure(figsize = (1,1.5))
         plt.axis("off")
