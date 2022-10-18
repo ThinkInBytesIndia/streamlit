@@ -19,7 +19,7 @@ from sklearn.metrics import plot_confusion_matrix
 import dlib
 import re
 fig = plt.figure()
-st.set_page_config(layout="wide").
+st.set_page_config(layout="wide")
 
 
 st.header("Emotion Recognition using deep learning")
