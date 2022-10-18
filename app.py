@@ -19,6 +19,8 @@ from sklearn.metrics import plot_confusion_matrix
 import dlib
 import re
 fig = plt.figure()
+st.set_page_config(layout="wide").
+
 
 st.header("Emotion Recognition using deep learning")
 
@@ -106,6 +108,6 @@ def predict(image):
 
 if __name__ == "__main__":
     main()
-    st.subheader("Image Classification - Applications")
+    st.markdown("<h2 style='text-align: center; color: black;'>Image Classification - Applications</h2>", unsafe_allow_html=True)
     image = Image.open('screen1.png')
     st.image(image)
