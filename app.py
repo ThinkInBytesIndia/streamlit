@@ -80,7 +80,9 @@ def main():
 
         cropped= image[num2:num4,num1:num3]
         show_face = Image.fromarray(cropped) 
-        plt.imshow(show_face)
+        draw=D.Draw(image)
+        draw.rectangle([(10,10),(25,25)],outline="red")
+        plt.imshow(image)
         plt.figure(figsize = (1,1.5))
         plt.axis("off")
         predictions = predict(cropped)
