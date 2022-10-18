@@ -22,14 +22,15 @@ fig = plt.figure()
 #st.set_page_config(layout="wide")
 
 
-st.header("Emotion Recognition using deep learning")
+st.title("Emotion Recognition using deep learning")
 
-st.sidebar.subheader("Behind the scenes !")
+st.sidebar.header("Behind the scenes !")
 #st.markdown('<div style="text-align: justify;">Hello World!</div>', unsafe_allow_html=True)
 st.sidebar.markdown('<div style="text-align: justify;">This emotion recongition module is a demonstration of our light-weight AI enabled Computer Vision Engine that identifies image pixels and classifies them into defined classes. Our read-to-deploy pipeline features: </div>', unsafe_allow_html=True)
-st.sidebar.markdown("- Seamless results")
-st.sidebar.markdown("- Highly Accurate")
-st.sidebar.markdown("- Edge compatible")
+st.sidebar.markdown("")
+st.sidebar.subheader("- Seamless results")
+st.sidebar.subheader("- Highly Accurate")
+st.sidebar.subheader("- Edge compatible")
 def load_model():
 
     model = Sequential()
