@@ -23,7 +23,7 @@ fig = plt.figure()
 
 
 st.title("Emotion Recognition using AI")
-st.caption("Powered by Think In Bytes")
+st.markdown("Powered by [Think In Bytes](https://www.thinkinbytes.in)")
 
 st.sidebar.header("Behind the scenes !")
 #st.markdown('<div style="text-align: justify;">Hello World!</div>', unsafe_allow_html=True)
@@ -123,4 +123,4 @@ if __name__ == "__main__":
     st.markdown("<h2 style='text-align: center; color: black;'>Image Classification - Applications</h2>", unsafe_allow_html=True)
     image = Image.open('screen1.png')
     st.image(image)
-    st.markdown("Powered by [Think In Bytes](https://www.thinkinbytes.in)")
+    
