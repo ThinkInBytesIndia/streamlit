@@ -21,12 +21,14 @@ import re
 fig = plt.figure()
 #st.set_page_config(layout="wide")
 
-def add_bg_from_url():
+def add_bg_from_url(image_file):
+    with open(image_file, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read())
     st.markdown(
          f"""
          <style>
          .stApp {{
-             background-image: url("https://www.nicepng.com/png/detail/207-2070432_white-background-url.png");
+             background-image: url(data:image/{"jpg"};base64,{encoded_string.decode()});
              background-attachment: fixed;
              background-size: cover
          }}
@@ -35,7 +37,7 @@ def add_bg_from_url():
          unsafe_allow_html=True
      )
 
-add_bg_from_url() 
+add_bg_from_url(white.jpg) 
 
 with st.container():
     st.title("Emotion Recognition using AI")
