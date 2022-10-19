@@ -18,6 +18,8 @@ from sklearn.metrics import confusion_matrix
 from sklearn.metrics import plot_confusion_matrix
 import dlib
 import re
+import base64
+
 fig = plt.figure()
 #st.set_page_config(layout="wide")
 
