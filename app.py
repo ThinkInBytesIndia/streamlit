@@ -41,9 +41,9 @@ def add_bg_from_url(image_file):
 
 add_bg_from_url('white.jpg') 
 
-with st.container():
-    st.title("Emotion Recognition using AI")
-    st.markdown("Powered by [Think In Bytes](https://www.thinkinbytes.in)")
+
+st.title("Emotion Recognition using AI")
+st.markdown("Powered by [Think In Bytes](https://www.thinkinbytes.in)")
 
 st.sidebar.header("Behind the scenes !")
 #st.markdown('<div style="text-align: justify;">Hello World!</div>', unsafe_allow_html=True)
