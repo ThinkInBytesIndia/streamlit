@@ -21,23 +21,21 @@ import re
 fig = plt.figure()
 #st.set_page_config(layout="wide")
 
-page_bg_img = f"""
-<style>
-[data-testid="stAppViewContainer"] > .main {{
-background: rgba(0,0,0,0);
-}}
-[data-testid="stSidebar"] > div:first-child {{
-background: rgba(0,0,0,0);
-}}
-[data-testid="stHeader"] {{
-background: rgba(0,0,0,0);
-}}
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://cdn.pixabay.com/photo/2019/04/24/11/27/flowers-4151900_960_720.jpg");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
 
-</style>
-"""
-
-st.markdown(page_bg_img, unsafe_allow_html=True)
-
+add_bg_from_url() 
 
 with st.container():
     st.title("Emotion Recognition using AI")
