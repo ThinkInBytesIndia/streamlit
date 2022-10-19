@@ -21,7 +21,23 @@ import re
 fig = plt.figure()
 #st.set_page_config(layout="wide")
 
-st.markdown("<style> p { background-color: white;} </style>",   unsafe_allow_html=True)
+page_bg_img = f"""
+<style>
+[data-testid="stAppViewContainer"] > .main {{
+background: rgba(0,0,0,0);
+}}
+[data-testid="stSidebar"] > div:first-child {{
+background: rgba(0,0,0,0);
+}}
+[data-testid="stHeader"] {{
+background: rgba(0,0,0,0);
+}}
+
+</style>
+"""
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
 
 
 st.title("Emotion Recognition using AI")
