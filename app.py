@@ -37,7 +37,7 @@ def add_bg_from_url(image_file):
          unsafe_allow_html=True
      )
 
-add_bg_from_url(white.jpg) 
+add_bg_from_url('white.jpg') 
 
 with st.container():
     st.title("Emotion Recognition using AI")
