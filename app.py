@@ -39,9 +39,9 @@ background: rgba(0,0,0,0);
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
 
-
-st.title("Emotion Recognition using AI")
-st.markdown("Powered by [Think In Bytes](https://www.thinkinbytes.in)")
+with st.container():
+    st.title("Emotion Recognition using AI")
+    st.markdown("Powered by [Think In Bytes](https://www.thinkinbytes.in)")
 
 st.sidebar.header("Behind the scenes !")
 #st.markdown('<div style="text-align: justify;">Hello World!</div>', unsafe_allow_html=True)
@@ -77,38 +77,39 @@ def load_model():
 
 def main():
     #file_uploaded = st.file_uploader("Choose File", type=["png","jpg","jpeg"])
-    file_uploaded = st.camera_input("Take a picture")
-    if file_uploaded is not None:    
-        image = Image.open(file_uploaded)
-        image_copy = image.copy()
-        image = np.array(image)
-        face_detector = dlib.get_frontal_face_detector()
-        detected_faces = face_detector(image, 1)
-        df = str(detected_faces)
-        s1 = (df.replace('rectangles', ''))
-        listelem = re.findall('\(.*?\)',s1)
-        
-        n1 = listelem[0].split(',')
-        n = [ int(n1[0].replace("(","")), int(n1[1].replace(")",""))]  
+    with st.container():
+            file_uploaded = st.camera_input("Take a picture")
+            if file_uploaded is not None:    
+                image = Image.open(file_uploaded)
+                image_copy = image.copy()
+                image = np.array(image)
+                face_detector = dlib.get_frontal_face_detector()
+                detected_faces = face_detector(image, 1)
+                df = str(detected_faces)
+                s1 = (df.replace('rectangles', ''))
+                listelem = re.findall('\(.*?\)',s1)
 
-        n2 = listelem[1].split(',')
-        n_1 = [ int(n2[0].replace("(","")), int(n2[1].replace(")",""))]  
-        
-        num1 = n[0]
-        num2 = n[1]
-        num3 = n_1[0]
-        num4 = n_1[1]
+                n1 = listelem[0].split(',')
+                n = [ int(n1[0].replace("(","")), int(n1[1].replace(")",""))]  
 
-        cropped= image[num2:num4,num1:num3]
-        #show_face = Image.fromarray(cropped) 
-        draw=D.Draw(image_copy)
-        draw.rectangle([(num1,num2),(num3,num4)],outline="red")
-        plt.imshow(image_copy)
-        plt.figure(figsize = (1,1.5))
-        plt.axis("off")
-        predictions = predict(cropped)
-        st.subheader(predictions)
-        st.pyplot(fig)
+                n2 = listelem[1].split(',')
+                n_1 = [ int(n2[0].replace("(","")), int(n2[1].replace(")",""))]  
+
+                num1 = n[0]
+                num2 = n[1]
+                num3 = n_1[0]
+                num4 = n_1[1]
+
+                cropped= image[num2:num4,num1:num3]
+                #show_face = Image.fromarray(cropped) 
+                draw=D.Draw(image_copy)
+                draw.rectangle([(num1,num2),(num3,num4)],outline="red")
+                plt.imshow(image_copy)
+                plt.figure(figsize = (1,1.5))
+                plt.axis("off")
+                predictions = predict(cropped)
+                st.subheader(predictions)
+                st.pyplot(fig)
 
 def predict(image):
     IMAGE_SHAPE = (48, 48, 1)
@@ -138,7 +139,8 @@ def predict(image):
 
 if __name__ == "__main__":
     main()
-    st.markdown("<h2 style='text-align: center; color: black;'>Image Classification - Applications</h2>", unsafe_allow_html=True)
-    image = Image.open('screen1.png')
-    st.image(image)
-    
+    with st.container():
+        st.markdown("<h2 style='text-align: center; color: black;'>Image Classification - Applications</h2>", unsafe_allow_html=True)
+        image = Image.open('screen1.png')
+        st.image(image)
+
