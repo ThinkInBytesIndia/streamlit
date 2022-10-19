@@ -21,6 +21,12 @@ import re
 fig = plt.figure()
 #st.set_page_config(layout="wide")
 
+st.markdown(   f”””   <style>
+   p {
+   background-color: white;
+   }
+   </style>   ”””,   unsafe_allow_html=True)
+
 
 st.title("Emotion Recognition using AI")
 st.markdown("Powered by [Think In Bytes](https://www.thinkinbytes.in)")
