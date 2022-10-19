@@ -26,7 +26,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://cdn.pixabay.com/photo/2019/04/24/11/27/flowers-4151900_960_720.jpg");
+             background-image: url("https://www.nicepng.com/png/detail/207-2070432_white-background-url.png");
              background-attachment: fixed;
              background-size: cover
          }}
