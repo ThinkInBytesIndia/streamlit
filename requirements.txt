@@ -4,6 +4,6 @@ numpy
 opencv_contrib_python==4.5.3.56
 Pillow
 scikit_learn==1.0.2
-tensorflow==2.4.1
+tensorflow
 streamlit==1.8.1
 dlib-bin
