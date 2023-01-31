@@ -39,9 +39,6 @@ def add_bg_from_url(image_file):
          unsafe_allow_html=True
      )
 
-st.title("Emotion Recognition using AI")
-st.markdown("Powered by [Think In Bytes](https://www.thinkinbytes.in)")
-
 add_bg_from_url('white.jpg') 
 
 st.sidebar.header("Behind the scenes !")
@@ -51,6 +48,7 @@ st.sidebar.markdown("")
 st.sidebar.subheader("- Minimal Training")
 st.sidebar.subheader("- Accurate Results")
 st.sidebar.subheader("- Edge compatible")
+
 def load_model():
 
     model = Sequential()
@@ -75,6 +73,30 @@ def load_model():
     model.load_weights('cp-100.pkl')
     
     return model
+
+def predict(image):
+    IMAGE_SHAPE = (48, 48, 1)
+    model = load_model()
+    #model = tf.keras.Sequential([hub.KerasLayer(classifier_model,input_shape=IMAGE_SHAPE)])
+    print(image.shape)
+    image = Image.fromarray(image)
+    test_image = image.resize((48,48))
+    test_image = preprocessing.image.img_to_array(test_image)
+    test_image = test_image / 255.0
+    test_image = np.expand_dims(test_image, axis=0)
+    
+    class_names = [
+          'angry', 
+          'happy', 
+          'neutral',
+          'surprised'
+          ]
+    predictions = model.predict(test_image)
+    scores = tf.nn.softmax(predictions[0])
+    scores = scores.numpy()
+
+    result = f"AI thinks you are {class_names[np.argmax(scores)]} with { int(100 * np.max(scores))+30 } % confidence." 
+    return result
 
 def main():
     #file_uploaded = st.file_uploader("Choose File", type=["png","jpg","jpeg"])
@@ -112,34 +134,13 @@ def main():
                 st.subheader(predictions)
                 st.pyplot(fig)
 
-def predict(image):
-    IMAGE_SHAPE = (48, 48, 1)
-    model = load_model()
-    #model = tf.keras.Sequential([hub.KerasLayer(classifier_model,input_shape=IMAGE_SHAPE)])
-    print(image.shape)
-    image = Image.fromarray(image)
-    test_image = image.resize((48,48))
-    test_image = preprocessing.image.img_to_array(test_image)
-    test_image = test_image / 255.0
-    test_image = np.expand_dims(test_image, axis=0)
-    
-    class_names = [
-          'angry', 
-          'happy', 
-          'neutral',
-          'surprised'
-          ]
-    predictions = model.predict(test_image)
-    scores = tf.nn.softmax(predictions[0])
-    scores = scores.numpy()
-
-    result = f"AI thinks you are {class_names[np.argmax(scores)]} with { int(100 * np.max(scores))+30 } % confidence." 
-    return result
-
-
 
 if __name__ == "__main__":
+    with st.container():
+        st.markdown("<h1 style='color: black;'>Covid Compliance using AI</h1>", unsafe_allow_html=True)
+        st.markdown("[Powered by Think In Bytes](https://www.thinkinbytes.in)")
     main()
+    
     with st.container():
         st.markdown("<h2 style='text-align: center; color: black;'>Image Classification - Applications</h2>", unsafe_allow_html=True)
         image = Image.open('screen1.png')
