@@ -131,7 +131,7 @@ def main():
                 plt.figure(figsize = (1,1.5))
                 plt.axis("off")
                 predictions = predict(cropped)
-                st.subheader(predictions)
+                st.success(predictions)
                 st.pyplot(fig)
 
 
