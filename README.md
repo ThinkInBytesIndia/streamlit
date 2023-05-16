@@ -1,2 +1,2 @@
 # streamlit
-testing streamlit for deep learning inference
+testing streamlit for deep learning image classification inference
